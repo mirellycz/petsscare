@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastro - PetsCare</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cadastro</h1>
+
+    <input id="name" placeholder="Nome" />
+    <input id="email" type="email" placeholder="Email" />
+    <input id="password" type="password" placeholder="Senha" />
+    <button onclick="register()">Cadastrar</button>
+  </div>
+
+  <script>
+    async function register() {
+      const res = await fetch("/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          password: password.value
+        })
+      });
+
+      if (res.ok) {
+        alert("Cadastro realizado!");
+        window.location.href = "/login";
+      } else {
+        alert("Erro no cadastro");
+      }
+    }
+  </script>
+
+</body>
+</html>

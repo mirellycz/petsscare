@@ -1,0 +1,101 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #7fd1c6, #a8e0d5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card principal */
+.container {
+  background: #fff;
+  width: 380px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Título */
+.container h1 {
+  color: #2f8f83;
+  margin-bottom: 20px;
+}
+
+/* Subtítulos */
+.container h2 {
+  font-size: 18px;
+  color: #444;
+  margin: 15px 0 10px;
+}
+
+/* Inputs */
+.container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.container input:focus {
+  outline: none;
+  border-color: #2f8f83;
+}
+
+/* Botões */
+.container button {
+  width: 100%;
+  padding: 12px;
+  background: #2f8f83;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.container button:hover {
+  background: #256f67;
+}
+
+/* Separador */
+.divider {
+  margin: 20px 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+/* Página de agendamento */
+.agendar-container {
+  background: #fff;
+  width: 400px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.agendar-container h1 {
+  text-align: center;
+  color: #2f8f83;
+  margin-bottom: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .container,
+  .agendar-container {
+    width: 90%;
+  }
+}

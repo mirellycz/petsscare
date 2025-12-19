@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agendar Serviço</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div class="agendar-container">
+  <h2>Agendar Serviço</h2>
+
+ <form id="formAgendar">
+  <input type="text" id="petName" placeholder="Nome do pet" required />
+
+  <select id="service" required>
+    <option value="">Selecione o serviço</option>
+    <option value="Banho">Banho</option>
+    <option value="Tosa">Tosa</option>
+  </select>
+
+  <input type="date" id="date" required />
+
+  <button type="submit">Agendar</button>
+</form>
+
+  <p id="msg"></p>
+
+  <button onclick="voltar()">Voltar</button>
+</div>
+
+<script>
+document.getElementById("formAgendar").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const token = localStorage.getItem("token");
+
+  const response = await fetch("/appointments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": token
+    },
+    body: JSON.stringify({
+      petName: document.getElementById("petName").value,
+      service: document.getElementById("service").value,
+      date: document.getElementById("date").value
+    })
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    alert("✅ Serviço agendado com sucesso!");
+    document.getElementById("formAgendar").reset();
+  } else {
+    alert(data.error || "Erro ao agendar serviço");
+  }
+});
+</script>
+
+</body>
+</html>

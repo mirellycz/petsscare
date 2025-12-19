@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - PetsCare</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bem-vindo ao PetsCare 🐶</h1>
+
+    <button onclick="irAgendar()">Agendar Serviço</button>
+        <script>
+        function irAgendar() {
+        const token = localStorage.getItem("token");
+        window.location.href = `/agendar?token=${token}`;
+        }
+        </script>
+    <div style="height: 10px"></div>
+
+    <button onclick="logout()">Sair</button>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+    }
+  </script>
+
+</body>
+</html>
