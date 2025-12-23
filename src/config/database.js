@@ -1,9 +1,10 @@
 // src/config/database.js
+const path = require("path");
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: "./database.sqlite",
+  storage: path.join(__dirname, "..", "database.sqlite"),
 });
 
 module.exports = sequelize;
